@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F8149C61B19F317003F9013 /* ANLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8149C51B19F317003F9013 /* ANLoader.m */; };
+		7F876C0C1B1B93C7003CD375 /* ANDataAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F876C0B1B1B93C7003CD375 /* ANDataAccessObject.m */; };
+		7F876C0F1B1B99B7003CD375 /* ANCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F876C0E1B1B99B7003CD375 /* ANCollectionViewCell.m */; };
 		7FB6BE2F1B180D8C005D99DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB6BE2E1B180D8C005D99DF /* main.m */; };
 		7FB6BE321B180D8C005D99DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB6BE311B180D8C005D99DF /* AppDelegate.m */; };
-		7FB6BE351B180D8C005D99DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB6BE341B180D8C005D99DF /* ViewController.m */; };
 		7FB6BE381B180D8C005D99DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6BE361B180D8C005D99DF /* Main.storyboard */; };
 		7FB6BE3A1B180D8C005D99DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6BE391B180D8C005D99DF /* Images.xcassets */; };
 		7FB6BE3D1B180D8C005D99DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6BE3B1B180D8C005D99DF /* LaunchScreen.xib */; };
 		7FB6BE491B180D8C005D99DF /* DemoPhotoViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB6BE481B180D8C005D99DF /* DemoPhotoViewTests.m */; };
+		7FB6BE541B180DCD005D99DF /* ANMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB6BE531B180DCD005D99DF /* ANMainTableViewController.m */; };
+		7FB6BE631B18FDDE005D99DF /* ANPhotoCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB6BE621B18FDDE005D99DF /* ANPhotoCollectionTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +31,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F8149C41B19F317003F9013 /* ANLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANLoader.h; sourceTree = "<group>"; };
+		7F8149C51B19F317003F9013 /* ANLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANLoader.m; sourceTree = "<group>"; };
+		7F876C0A1B1B93C7003CD375 /* ANDataAccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDataAccessObject.h; sourceTree = "<group>"; };
+		7F876C0B1B1B93C7003CD375 /* ANDataAccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDataAccessObject.m; sourceTree = "<group>"; };
+		7F876C0D1B1B99B7003CD375 /* ANCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionViewCell.h; sourceTree = "<group>"; };
+		7F876C0E1B1B99B7003CD375 /* ANCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionViewCell.m; sourceTree = "<group>"; };
 		7FB6BE291B180D8C005D99DF /* DemoPhotoView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoPhotoView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB6BE2D1B180D8C005D99DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB6BE2E1B180D8C005D99DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FB6BE301B180D8C005D99DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7FB6BE311B180D8C005D99DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7FB6BE331B180D8C005D99DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7FB6BE341B180D8C005D99DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7FB6BE371B180D8C005D99DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FB6BE391B180D8C005D99DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7FB6BE3C1B180D8C005D99DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7FB6BE421B180D8C005D99DF /* DemoPhotoViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoPhotoViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB6BE471B180D8C005D99DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB6BE481B180D8C005D99DF /* DemoPhotoViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoPhotoViewTests.m; sourceTree = "<group>"; };
+		7FB6BE521B180DCD005D99DF /* ANMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANMainTableViewController.h; sourceTree = "<group>"; };
+		7FB6BE531B180DCD005D99DF /* ANMainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANMainTableViewController.m; sourceTree = "<group>"; };
+		7FB6BE611B18FDDE005D99DF /* ANPhotoCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhotoCollectionTableViewCell.h; sourceTree = "<group>"; };
+		7FB6BE621B18FDDE005D99DF /* ANPhotoCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPhotoCollectionTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +95,17 @@
 			children = (
 				7FB6BE301B180D8C005D99DF /* AppDelegate.h */,
 				7FB6BE311B180D8C005D99DF /* AppDelegate.m */,
-				7FB6BE331B180D8C005D99DF /* ViewController.h */,
-				7FB6BE341B180D8C005D99DF /* ViewController.m */,
 				7FB6BE361B180D8C005D99DF /* Main.storyboard */,
+				7FB6BE521B180DCD005D99DF /* ANMainTableViewController.h */,
+				7FB6BE531B180DCD005D99DF /* ANMainTableViewController.m */,
+				7FB6BE611B18FDDE005D99DF /* ANPhotoCollectionTableViewCell.h */,
+				7FB6BE621B18FDDE005D99DF /* ANPhotoCollectionTableViewCell.m */,
+				7F876C0D1B1B99B7003CD375 /* ANCollectionViewCell.h */,
+				7F876C0E1B1B99B7003CD375 /* ANCollectionViewCell.m */,
+				7F876C0A1B1B93C7003CD375 /* ANDataAccessObject.h */,
+				7F876C0B1B1B93C7003CD375 /* ANDataAccessObject.m */,
+				7F8149C41B19F317003F9013 /* ANLoader.h */,
+				7F8149C51B19F317003F9013 /* ANLoader.m */,
 				7FB6BE391B180D8C005D99DF /* Images.xcassets */,
 				7FB6BE3B1B180D8C005D99DF /* LaunchScreen.xib */,
 				7FB6BE2C1B180D8C005D99DF /* Supporting Files */,
@@ -219,9 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FB6BE351B180D8C005D99DF /* ViewController.m in Sources */,
 				7FB6BE321B180D8C005D99DF /* AppDelegate.m in Sources */,
 				7FB6BE2F1B180D8C005D99DF /* main.m in Sources */,
+				7FB6BE631B18FDDE005D99DF /* ANPhotoCollectionTableViewCell.m in Sources */,
+				7F876C0F1B1B99B7003CD375 /* ANCollectionViewCell.m in Sources */,
+				7FB6BE541B180DCD005D99DF /* ANMainTableViewController.m in Sources */,
+				7F8149C61B19F317003F9013 /* ANLoader.m in Sources */,
+				7F876C0C1B1B93C7003CD375 /* ANDataAccessObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +440,7 @@
 				7FB6BE4E1B180D8C005D99DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7FB6BE4F1B180D8C005D99DF /* Build configuration list for PBXNativeTarget "DemoPhotoViewTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +449,7 @@
 				7FB6BE511B180D8C005D99DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
