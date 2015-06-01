@@ -35,7 +35,6 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
         for (int i = 200; i <= _folderCount; i += 50) {
             [self download:amount toFolder:i];
         }
-        [self runFetcher];
     });
 }
 
@@ -48,25 +47,28 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
                                         attributes:nil
                                              error:&error];
     [self downloadImages:photoNum InFolder:[NSString stringWithFormat:@"%lu", (unsigned long)folderNum]];
-
 }
 
 - (void)downloadImages:(NSUInteger)amount InFolder:(NSString *)path
 {
-    if (amount == 0) return;
-    
-    NSURL *url = [[NSURL URLWithString:@"http://placekitten.com/g/"] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@/%lu", path, amount+301]];
-    
-    NSError *error;
-    NSString *tmpPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%lu.jpg", path, (unsigned long)amount]];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:tmpPath]) {
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        if ([data length] > 0)
-            [data writeToFile:tmpPath options:NSDataWritingAtomic error:&error];
+    if (amount == 0) {
+        [self runFetcher];
+        return;
     }
-
-    [self downloadImages:amount-1 InFolder:path];
-
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSURL *url = [[NSURL URLWithString:@"http://placekitten.com/g/"] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@/%lu", path, amount+301]];
+        
+        NSError *error;
+        NSString *tmpPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%lu.jpg", path, (unsigned long)amount]];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:tmpPath]) {
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            if ([data length] > 0)
+                [data writeToFile:tmpPath options:NSDataWritingAtomic error:&error];
+        }
+        
+        [self downloadImages:amount-1 InFolder:path];
+    });
 }
 
 - (void)saveImages:(NSArray *)images
@@ -106,7 +108,9 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
     NSLog(@"%@", dirs);
     for (NSString *folderStringPath in dirs) {
         NSString *folderPath = [strPath stringByAppendingPathComponent:folderStringPath];
-        [[[ANDataAccessObject sharedManager] imageStorage] addObject:[self fetchImagesAtPath:folderPath withFileManager:fileManager]];
+        NSArray *images = [self fetchImagesAtPath:folderPath withFileManager:fileManager];
+        if ([images count] > 0)
+            [[[ANDataAccessObject sharedManager] imageStorage] addObject:images];
     }
     
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:ANLoaderFetcherFinished

@@ -45,9 +45,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [[NSNotificationCenter defaultCenter] addObserverForName:ANLoaderFetcherFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSLog(@"%s", __FUNCTION__);
         [self.indicatorView stopAnimating];
-        
+        [self.openedCellIndexes addObject:@(0)];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.openedCellIndexes addObject:@(0)];
             [self.tableView reloadData];
         });
         
