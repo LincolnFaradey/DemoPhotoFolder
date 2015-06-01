@@ -43,7 +43,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewWillAppear:animated];
     [self.indicatorView startAnimating];
     [[NSNotificationCenter defaultCenter] addObserverForName:ANLoaderFetcherFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"%s", __FUNCTION__);
+        NSLog(@"here %s", __FUNCTION__);
         [self.indicatorView stopAnimating];
         [self.openedCellIndexes addObject:@(0)];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -123,7 +123,7 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     
     cell.imageStorage = [self.dao imageStorage][indexPath.section];
-
+    
     self.heighForIndexes[indexPath] = @([cell collectionRect].size.height);
     
     return cell;
@@ -181,7 +181,7 @@ static NSString * const reuseIdentifier = @"Cell";
         sender.backgroundColor = [UIColor grayColor];
         [self.openedCellIndexes removeObject:@(sender.tag)];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag]
-                      withRowAnimation:UITableViewRowAnimationNone];
+                      withRowAnimation:UITableViewRowAnimationBottom];
     }
 }
 

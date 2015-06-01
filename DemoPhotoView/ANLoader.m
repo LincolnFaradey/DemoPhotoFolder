@@ -35,6 +35,7 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
         for (int i = 200; i <= _folderCount; i += 50) {
             [self download:amount toFolder:i];
         }
+        [self runFetcher];
     });
 }
 
@@ -52,7 +53,7 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
 - (void)downloadImages:(NSUInteger)amount InFolder:(NSString *)path
 {
     if (amount == 0) {
-        [self runFetcher];
+        
         return;
     }
     
