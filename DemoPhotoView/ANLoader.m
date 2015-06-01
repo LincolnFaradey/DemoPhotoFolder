@@ -33,8 +33,9 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         for (int i = 200; i <= _folderCount; i += 50) {
-            [self download:amount toFolder:i];
+            [self download:arc4random()%50+1 toFolder:i];
         }
+        
         [self runFetcher];
     });
 }
@@ -125,13 +126,12 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
     
     for (NSString *fileStringPath in dirs) {
         NSString *fullPath = [path stringByAppendingPathComponent:fileStringPath];
-        NSData *data = [NSData dataWithContentsOfFile:fullPath];
-        UIImage *image = [UIImage imageWithData:data];
-        if (image)
-            [images addObject:image];
-        else {
-            NSLog(@"%s", __FUNCTION__);
+        BOOL isDerectory;
+        if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDerectory]) {
+            if (!isDerectory)
+                [images addObject:fullPath];
         }
+        
     }
 
     return images;

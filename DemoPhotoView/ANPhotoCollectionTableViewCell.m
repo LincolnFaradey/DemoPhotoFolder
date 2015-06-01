@@ -86,9 +86,13 @@ static NSString * const reuseIdentifier = @"myCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ANCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    UIImage *img = self.imageStorage[indexPath.row];
-    cell.imageView.image = img;
-
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (indexPath.row < [self.imageStorage count]) {
+            UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfFile:self.imageStorage[indexPath.row]]];
+            cell.imageView.image = img;
+        }
+    });
+    
     return cell;
 }
 

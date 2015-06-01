@@ -17,7 +17,6 @@
 @implementation ANCollectionViewCell
 @synthesize blueDot;
 
-// Lazy loading of the imageView
 - (UIImageView *) imageView
 {
     if (!_imageView) {
@@ -29,7 +28,6 @@
     return _imageView;
 }
 
-// Here we remove all the custom stuff that we added to our subclassed cell
 -(void)prepareForReuse
 {
     [super prepareForReuse];

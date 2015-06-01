@@ -43,7 +43,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewWillAppear:animated];
     [self.indicatorView startAnimating];
     [[NSNotificationCenter defaultCenter] addObserverForName:ANLoaderFetcherFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"here %s", __FUNCTION__);
+        NSLog(@"here %@", note.name);
         [self.indicatorView stopAnimating];
         [self.openedCellIndexes addObject:@(0)];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -192,9 +192,9 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)save
 {
     [self.loader saveImages:self.dao.tempImageStorage];
+    [self.dao.tempImageStorage removeAllObjects];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.loader runFetcher];
-//        [self.tableView reloadData];
     });
 }
 
