@@ -57,7 +57,7 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
         return;
     }
     
-    dispatch_async(dispatch_get_main_queue(), ^{
+//    dispatch_async(dispatch_get_main_queue(), ^{
         NSURL *url = [[NSURL URLWithString:@"http://placekitten.com/g/"] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@/%lu", path, amount+301]];
         
         NSError *error;
@@ -69,7 +69,7 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
         }
         
         [self downloadImages:amount-1 InFolder:path];
-    });
+//    });
 }
 
 - (void)saveImages:(NSArray *)images
@@ -83,7 +83,7 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
                                                     error:&error];
     
     for (UIImage *img in images) {
-        NSData *data = UIImageJPEGRepresentation(img, 0.0);
+        NSData *data = UIImageJPEGRepresentation(img, 0.8);
         NSString *name = [NSString stringWithFormat:@"%u", arc4random()%100000];
         NSString *filePath = [NSString stringWithFormat:@"%@/%@.jpg", path, name];
         
@@ -99,6 +99,8 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
 {
     [[[ANDataAccessObject sharedManager] imageStorage] removeAllObjects];
     [self imageFoldersForPath:NSTemporaryDirectory()];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:ANLoaderFetcherFinished
+                                                                                         object:self]];
 }
 
 - (void)imageFoldersForPath:(NSString *)strPath
@@ -113,10 +115,6 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
         if ([images count] > 0)
             [[[ANDataAccessObject sharedManager] imageStorage] addObject:images];
     }
-    
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:ANLoaderFetcherFinished
-                                                                                         object:self]];
-    
 }
 
 
