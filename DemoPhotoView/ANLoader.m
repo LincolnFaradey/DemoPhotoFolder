@@ -93,7 +93,6 @@ NSString *const ANLoaderFetcherFinished = @"ANLoaderDownloadFinished";
             NSLog(@"%@", error);
         }
     }
-    
 }
 
 - (void)runFetcher

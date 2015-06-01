@@ -192,9 +192,9 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)save
 {
     [self.loader saveImages:self.dao.tempImageStorage];
-    [self.dao.tempImageStorage removeAllObjects];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.loader runFetcher];
+        [self.dao.tempImageStorage removeAllObjects];
     });
 }
 
