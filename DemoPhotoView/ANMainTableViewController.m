@@ -81,8 +81,10 @@ static NSString * const reuseIdentifier = @"Cell";
         
     }];
     
-    
+#warning comment it after first lunch
     [self.loader downloadImagesWith:arc4random()%50+1];
+#warning uncomment it after first lunch
+//    [self.loader runFetcher];
 }
 
 
